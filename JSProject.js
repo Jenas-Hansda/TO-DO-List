@@ -1,27 +1,34 @@
-let btn = document.querySelector("button");
-let ul = document.querySelector("ul");
-let inp = document.querySelector("input");
+const addTaskBtn = document.querySelector("#addTaskBtn");
+const taskInput = document.querySelector("#taskInput");
+const taskList = document.querySelector("#taskList");
 
-btn.addEventListener("click", function () {
-    let item = document.createElement("li");
-    item.innerText = inp.value;
+// Add new task
+addTaskBtn.addEventListener("click", () => {
+    const taskText = taskInput.value.trim();
 
-    let delBtn = document.createElement("button");
-    delBtn.innerText = "delete";
+    if (taskText === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
     delBtn.classList.add("delete");
 
-    item.appendChild(delBtn);
-    ul.appendChild(item);
-    inp.value = "";  
-}
-);
+    li.appendChild(delBtn);
+    taskList.appendChild(li);
 
+    taskInput.value = "";
+    taskInput.focus();
+});
 
-ul.addEventListener("click", function(event) {
-    if (event.target.nodeName == "BUTTON"){
-        let listItems = event.target.parentElement;
-        listItems.remove();
-        console.log("deleted");
+// Delete task using event delegation
+taskList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete")) {
+        event.target.parentElement.remove();
+        console.log("Task deleted");
     }
-    
 });

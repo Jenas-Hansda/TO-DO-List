@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSProject</title>
-    <link rel="stylesheet" href="JSProject.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="JSProject.css" />
 </head>
 <body>
+  <main class="todo-container">
     <h1>Todo List</h1>
-    <input placeholde = "Enter your Task" />
-    <button>Add Task</button>
-    <ul>
-        <li>Demo <button class="delete">delete</button></li>
-    </ul>
-    <script src="JSProject.js"></script>
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter your task" />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+    <ul id="taskList"></ul>
+  </main>
+  <script src="JSProject.js"></script>
 </body>
 </html>
